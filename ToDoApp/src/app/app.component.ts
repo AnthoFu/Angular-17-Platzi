@@ -10,10 +10,5 @@ import { CommonModule } from '@angular/common';
 })
 
 export class AppComponent {
-  welcome = '¡Bienvenido!'
-  taskList= [
-    'Instalar el Angular CLI',
-    'Crear un nuevo proyecto con Angular CLI',
-    'Crear compontentes',
-  ]
+  title= 'titulo'
 }
