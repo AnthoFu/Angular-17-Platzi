@@ -9,3 +9,14 @@
 <p>La suma de 3+3 es {{ 3 + 3 }}</p>
 <p>¡Hola! Soy: {{ name }}</p>
 <p>Y tengo {{ edad }} años de edad</p>
+
+
+<hr />
+
+<!-- [Clase 5 Property Binding] -->
+<img [src]="img" alt=""> 
+<input type="number" [value]="person.edad">
+<button [disabled]="disabled">Click me</button>
+<!-- Con los corchetes '[]' se hacen dinamicas las propiedades, el = busca el valor en el typescript del archivo -->
+
+<p>Objeto <b>person</b>: {{person.name}} edad: {{person.edad}}</p>

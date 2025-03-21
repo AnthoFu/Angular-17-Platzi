@@ -15,7 +15,16 @@ export class LabsComponent {
     'Crear un nuevo proyecto con Angular CLI',
     'Crear compontentes',
   ]
+
+  // Aqui definimos informacion sin ser un objeto
   name = 'AnthoFu';
   edad= 20;
+  disabled=true;
+  img = 'https://picsum.photos/200/300';
 
+  // Aqui definimos un objeto 'person', para acceder a sus valores debe ser person.name o person.edad
+  person = {
+    name: 'AnthoFu',
+    edad: 20,
+  }
 }
