@@ -15,5 +15,7 @@ export class LabsComponent {
     'Crear un nuevo proyecto con Angular CLI',
     'Crear compontentes',
   ]
+  name = 'AnthoFu';
+  edad= 20;
 
 }
