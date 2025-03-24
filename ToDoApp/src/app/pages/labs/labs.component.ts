@@ -27,4 +27,14 @@ export class LabsComponent {
     name: 'AnthoFu',
     edad: 20,
   }
+  
+  // [Clase 6 event binding click y double click]
+  clickHandler() {
+    alert('Click en el botón');
+  }
+
+  changeHandler(event:Event){
+    console.log('[changeHandler]:' ,event)
+  }
 }
+

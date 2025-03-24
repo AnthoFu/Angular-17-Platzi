@@ -1,22 +1,34 @@
-<h1>Este es el componente Labs</h1>
-<h2>{{welcome}}</h2>
-<ul>
-  <li *ngFor="let tarea of taskList">{{tarea}}</li>
-</ul>
+<div class="container">
+  <h1>Este es el componente Labs</h1>
+  <h2>{{welcome}}</h2>
+  <ul>
+    <li *ngFor="let tarea of taskList">{{tarea}}</li>
+  </ul>
 
-<hr />
-<h2>{{ 'Hola'.repeat(4) }}</h2>
-<p>La suma de 3+3 es {{ 3 + 3 }}</p>
-<p>¡Hola! Soy: {{ name }}</p>
-<p>Y tengo {{ edad }} años de edad</p>
+  <hr />
+  <h2>{{ 'Hola'.repeat(4) }}</h2>
+  <p>La suma de 3+3 es {{ 3 + 3 }}</p>
+  <p>¡Hola! Soy: {{ name }}</p>
+  <p>Y tengo {{ edad }} años de edad</p>
 
 
-<hr />
+  <hr />
 
-<!-- [Clase 5 Property Binding] -->
-<img [src]="img" alt=""> 
-<input type="number" [value]="person.edad">
-<button [disabled]="disabled">Click me</button>
-<!-- Con los corchetes '[]' se hacen dinamicas las propiedades, el = busca el valor en el typescript del archivo -->
+  <!-- [Clase 5 Property Binding] -->
+  <img [src]="img" alt="">
+  <input type="number" [value]="person.edad">
+  <button [disabled]="disabled">Click me</button>
+  <!-- Con los corchetes '[]' se hacen dinamicas las propiedades, el = busca el valor en el typescript del archivo -->
 
-<p>Objeto <b>person</b>: {{person.name}} edad: {{person.edad}}</p>
+  <p>Objeto <b>person</b>: {{person.name}} edad: {{person.edad}}</p>
+
+  <!-- [Clase 6 Event binding click y double click] -->
+
+  <hr />
+
+  <button (click)="clickHandler()">¡Clickeame esta! :D</button>
+  <button (dblclick)="clickHandler()">¡Clickeame 2 veces esta! :D</button>
+  <p>(change)</p>
+  <input type="number" [value]="person.edad" (change)="changeHandler($event)">
+  <!-- Recordar colocar () al final del "metodo" clickHandler -->
+</div>
