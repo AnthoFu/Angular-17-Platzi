@@ -27,8 +27,18 @@
   <hr />
 
   <button (click)="clickHandler()">¡Clickeame esta! :D</button>
+  <br>
   <button (dblclick)="clickHandler()">¡Clickeame 2 veces esta! :D</button>
   <p>(change)</p>
   <input type="number" [value]="person.edad" (change)="changeHandler($event)">
   <!-- Recordar colocar () al final del "metodo" clickHandler -->
+
+  <!-- [Clase 7 Event binding keydown] -->
+  <input type="text" [value]="person.name" (keydown)="keydownHandler($event)">
+  <!-- El input tipo texto con (keydown) manejara el evento al presionar cualquier tecla -->
+  <!-- En cambio con (change) sera al abandonar el cuadro o al darle enter -->
+
+  <!-- Tambien se le pueden colocar filtrados por alguna tecla en especifico, ejemplo -->
+  <input type="text" [value]="person.name" (keydown.shift.t)="clickHandler()"> 
+  <!-- si se hace un shift + t, se ejecutara el metodo clickHandler -->
 </div>

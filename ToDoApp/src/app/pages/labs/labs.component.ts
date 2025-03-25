@@ -36,5 +36,11 @@ export class LabsComponent {
   changeHandler(event:Event){
     console.log('[changeHandler]:' ,event)
   }
+
+  // [Clase 7 event binding keydown]
+  keydownHandler(event:KeyboardEvent){
+    const input = event.target as HTMLInputElement;
+    console.log('[keydownHandler]: ', input.value)
+  }
 }
 
