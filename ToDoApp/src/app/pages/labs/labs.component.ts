@@ -10,11 +10,11 @@ import { Component, signal } from '@angular/core';
 })
 export class LabsComponent {
   welcome = '¡Bienvenido!'
-  taskList= [
+  taskList= signal ([
     'Instalar el Angular CLI',
     'Crear un nuevo proyecto con Angular CLI',
     'Crear compontentes',
-  ]
+  ]);
 
   // Aqui definimos informacion sin ser un objeto
   name = signal('AnthoFu');

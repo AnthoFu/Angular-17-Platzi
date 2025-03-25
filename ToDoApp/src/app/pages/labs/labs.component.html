@@ -1,10 +1,6 @@
 <div class="container">
   <h1>Este es el componente Labs</h1>
   <h2>{{welcome}}</h2>
-  <ul>
-    <li *ngFor="let tarea of taskList">{{tarea}}</li>
-  </ul>
-
   <hr />
   <h2>{{ 'Hola'.repeat(4) }}</h2>
   <p>La suma de 3+3 es {{ 3 + 3 }}</p>
@@ -47,4 +43,13 @@
   <h2>Signals :D</h2>
   <input type="text" [value]="name()" (change)="changeHandler($event)">
   <p>name: {{name()}}</p>
+
+  <hr />
+  <!-- [Clase 10] Directivas de Control -->
+  <ul>
+    <p>total: {{taskList().length}}</p>
+    <li *ngFor="let tarea of taskList(); index as i">
+      {{i}} {{tarea}}
+    </li>
+  </ul>
 </div>
