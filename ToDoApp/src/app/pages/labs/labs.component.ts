@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class LabsComponent {
   ]
 
   // Aqui definimos informacion sin ser un objeto
-  name = 'AnthoFu';
+  name = signal('AnthoFu');
   edad= 20;
   disabled=true;
   img = 'https://picsum.photos/200/300';
@@ -35,6 +35,9 @@ export class LabsComponent {
 
   changeHandler(event:Event){
     console.log('[changeHandler]:' ,event)
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.name.set(newValue);
   }
 
   // [Clase 7 event binding keydown]

@@ -8,7 +8,7 @@
   <hr />
   <h2>{{ 'Hola'.repeat(4) }}</h2>
   <p>La suma de 3+3 es {{ 3 + 3 }}</p>
-  <p>¡Hola! Soy: {{ name }}</p>
+  <p>¡Hola! Soy: {{ name() }}</p>
   <p>Y tengo {{ edad }} años de edad</p>
 
 
@@ -41,4 +41,10 @@
   <!-- Tambien se le pueden colocar filtrados por alguna tecla en especifico, ejemplo -->
   <input type="text" [value]="person.name" (keydown.shift.t)="clickHandler()"> 
   <!-- si se hace un shift + t, se ejecutara el metodo clickHandler -->
+
+  <hr />
+  <!-- [Clase 9] Signals -->
+  <h2>Signals :D</h2>
+  <input type="text" [value]="name()" (change)="changeHandler($event)">
+  <p>name: {{name()}}</p>
 </div>
