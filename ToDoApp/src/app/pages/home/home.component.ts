@@ -15,4 +15,16 @@ export class HomeComponent {
     'Crear compontentes',
   ]);
 
+// [Clase 11]
+  changeHandler(event: Event){
+    
+    const input = event.target as HTMLInputElement; // Tomamos el input que se ha modificado
+    const newTask = input.value; // Obtenemos el valor del input
+    this.taskList.update((taskList)=> [...taskList, newTask ]); // Agregamos el nuevo valor a la lista
+    console.log ('[changeHandler] Se agrego una nueva tarea:', newTask)
+  }
+
+  deleteTask(index:number){
+    this.taskList.update((taskList)=> taskList.filter((task, position)=> position !== index)); // Eliminamos la tarea
+  }
 }
