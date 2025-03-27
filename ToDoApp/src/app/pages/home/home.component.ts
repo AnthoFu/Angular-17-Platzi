@@ -50,4 +50,18 @@ export class HomeComponent {
   deleteTask(index:number){
     this.taskList.update((taskList)=> taskList.filter((task, position)=> position !== index)); // Eliminamos la tarea mediante un filter de la tarea por su posicion
   }
+
+  updateTask(index:number){
+    this.taskList.update((taskList)=> {
+      return taskList.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            completed: !task.completed,
+          }
+        }
+        return task;
+      })
+    })
+  }
 }
