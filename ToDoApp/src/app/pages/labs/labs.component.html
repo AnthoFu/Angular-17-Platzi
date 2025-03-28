@@ -12,11 +12,11 @@
 
   <!-- [Clase 5 Property Binding] -->
   <img [src]="img" alt="">
-  <input type="number" [value]="person.edad">
+  <input type="number" [value]="person().edad">
   <button [disabled]="disabled">Click me</button>
   <!-- Con los corchetes '[]' se hacen dinamicas las propiedades, el = busca el valor en el typescript del archivo -->
 
-  <p>Objeto <b>person</b>: {{person.name}} edad: {{person.edad}}</p>
+  <p>Objeto <b>person</b>: {{person().name}} edad: {{person().edad}}</p>
 
   <!-- [Clase 6 Event binding click y double click] -->
 
@@ -26,16 +26,16 @@
   <br>
   <button (dblclick)="clickHandler()">¡Clickeame 2 veces esta! :D</button>
   <p>(change)</p>
-  <input type="number" [value]="person.edad" (change)="changeHandler($event)">
+  <input type="number" [value]="person().edad" (change)="changeHandler($event)">
   <!-- Recordar colocar () al final del "metodo" clickHandler -->
 
   <!-- [Clase 7 Event binding keydown] -->
-  <input type="text" [value]="person.name" (keydown)="keydownHandler($event)">
+  <input type="text" [value]="person().name" (keydown)="keydownHandler($event)">
   <!-- El input tipo texto con (keydown) manejara el evento al presionar cualquier tecla -->
   <!-- En cambio con (change) sera al abandonar el cuadro o al darle enter -->
 
   <!-- Tambien se le pueden colocar filtrados por alguna tecla en especifico, ejemplo -->
-  <input type="text" [value]="person.name" (keydown.shift.t)="clickHandler()"> 
+  <input type="text" [value]="person().name" (keydown.shift.t)="clickHandler()"> 
   <!-- si se hace un shift + t, se ejecutara el metodo clickHandler -->
 
   <hr />
@@ -52,4 +52,34 @@
       {{i}} {{tarea}}
     </li>
   </ul>
+
+  <hr/>
+  <!-- [Clase 14] NgIf -->
+   <div *ngIf="1 + 1 === 2 "> 
+    Este texto aparece si 1+1=2
+  </div>
+
+    <div *ngIf="1+1 !== 2"> 
+      Este texto aparece si 1+1!=2
+    </div>
+
+    <div *ngIf="person().name ==='AnthoFu'">
+      Hola, soy AnthoFu, el actual desarrollador de este proyecto.
+    </div>
+
+    <div *ngIf="person().name !=='AnthoFu'">
+      ¡No soy AnthoFu! 
+    </div>
+
+    <div *ngIf="person().name === 'AnthoFu' && person().edad > 18; else elseBlock">
+      <p>¡Hola! Soy {{person().name}} y soy mayor de edad, tengo <strong>{{person().edad}}</strong> años.</p>
+    </div>
+
+    <input type="number" [value]="person().edad" (change)="changeEdad($event)">
+
+    <ng-template #elseBlock>
+      ¡Hola! Soy AnthoFu, pero no soy mayor de 18 años.
+    </ng-template>
+    
+
 </div>

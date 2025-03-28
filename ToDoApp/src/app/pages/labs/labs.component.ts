@@ -23,10 +23,10 @@ export class LabsComponent {
   img = 'https://picsum.photos/200/300';
 
   // Aqui definimos un objeto 'person', para acceder a sus valores debe ser person.name o person.edad
-  person = {
+  person = signal ({ // [clase 14] Volvemos person una signal
     name: 'AnthoFu',
     edad: 20,
-  }
+  })
   
   // [Clase 6 event binding click y double click]
   clickHandler() {
@@ -44,6 +44,22 @@ export class LabsComponent {
   keydownHandler(event:KeyboardEvent){
     const input = event.target as HTMLInputElement;
     console.log('[keydownHandler]: ', input.value)
+  }
+
+
+
+
+  // [Clase 14] Uso de NgIf
+  changeEdad(event:Event){
+    console.log('[changeEdad]:' ,event)
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(estadoAnterior =>{
+      return {
+        ...estadoAnterior,
+        edad: parseInt(newValue,10)
+      }
+    });
   }
 }
 
