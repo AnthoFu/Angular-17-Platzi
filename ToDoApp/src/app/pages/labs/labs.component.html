@@ -82,4 +82,25 @@
     </ng-template>
     
 
+
+    <!-- [Clase 15] NgSwitch y NgSwitchDefault -->
+    <hr/>
+    <div [ngSwitch]="person().name">
+      <p *ngSwitchCase="'adriana'">
+        Yo soy Adriana
+      </p>
+      <p *ngSwitchCase="'jonathan'">
+        Yo soy Jonathan
+      </p>
+      <p *ngSwitchCase="'aldryn'">
+        Yo soy Aldryn
+      </p>
+      <p *ngSwitchCase="'alberto'">
+        Yo soy Alberto
+      </p>
+      <p *ngSwitchDefault>
+        Yo no soy Adriana, Jonathan, Aldryn o Alberto
+      </p>
+    </div>
+    <input type="text" [value]="person().name" (change)="changeName($event)">
 </div>

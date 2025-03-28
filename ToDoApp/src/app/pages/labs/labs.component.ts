@@ -61,5 +61,18 @@ export class LabsComponent {
       }
     });
   }
+
+  // [Clase 15] Uso de NgSwitch y NgSwitchDefault
+  changeName(event:Event){
+    console.log('[changeName]:' ,event)
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(estadoAnterior =>{
+      return {
+        ...estadoAnterior,
+        name: newValue
+      }
+    });
+  }
 }
 
