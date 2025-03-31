@@ -103,4 +103,9 @@
       </p>
     </div>
     <input type="text" [value]="person().name" (change)="changeName($event)">
+
+    <!-- [Clase 16] Controlando un input -->
+      <hr/>
+      <input type="color" [formControl]="colorControl">
+      <p>Color: {{colorControl.value }} </p>
 </div>

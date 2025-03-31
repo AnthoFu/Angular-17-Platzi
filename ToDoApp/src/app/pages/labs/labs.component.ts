@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-
+import { FormControl, ReactiveFormsModule } from '@angular/forms'; // [Clase 16]
 
 @Component({
   selector: 'app-labs',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.css'
 })
@@ -73,6 +73,16 @@ export class LabsComponent {
         name: newValue
       }
     });
+  }
+
+  // [Clase 16] controlando un input
+
+  colorControl = new FormControl();
+  
+  constructor (){
+    this.colorControl.valueChanges.subscribe(value =>{
+      console.log('[colorControl]:' ,value)
+    })
   }
 }
 
