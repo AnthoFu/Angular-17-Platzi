@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Task} from '../../models/task.model'
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms'; //[Clase 17] Manejo de formularios
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   standalone:true, // <--- Volvemos el componente standalone [fuera de clase 12, para que funcionara]
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -30,19 +31,20 @@ export class HomeComponent {
     },
   ]);
 
-// [Clase 12] NgFor para Objetos
-  changeHandler(event: Event){
-    const input = event.target as HTMLInputElement; // Tomamos el input que se ha modificado
-    const newTask = input.value; // Obtenemos el valor del input
-    console.log ('[changeHandler] Se agrego una nueva tarea:', newTask);
-    this.addTask(newTask);
+// [Modificado en Clase 17]
+  changeHandler(){ 
+    const value = this.newTaskControl.value; // tomamos el valor del control
+    if(this.newTaskControl.valid && value.trim()!== '') { // si el control es válido y no está vacío
+      this.addTask(value); // agregamos la tarea
+      this.newTaskControl.setValue(''); // limpiamos el control
+    }
   }
 
-  addTask(title:string){
-    const newTask = {
-      id:Date.now(),
-      title:title,
-      completed: false,
+  addTask(title:string){ // función para agregar tarea
+    const newTask = { // creamos un nuevo objeto tarea
+      id:Date.now(), // generamos un id único
+      title:title, // asignamos el título
+      completed: false, // la tarea no está completada
     }
     this.taskList.update((taskList)=> [...taskList, newTask ]); // Agregamos el nuevo valor a la lista
   }
@@ -51,12 +53,12 @@ export class HomeComponent {
     this.taskList.update((taskList)=> taskList.filter((task, position)=> position !== index)); // Eliminamos la tarea mediante un filter de la tarea por su posicion
   }
 
-  updateTask(index:number){
-    this.taskList.update((taskList)=> {
-      return taskList.map((task, position) => {
+  updateTask(index:number){ // función para actualizar tarea
+    this.taskList.update((taskList)=> { // obtenemos la lista de tareas
+      return taskList.map((task, position) => { // recorremos la lista
         if (position === index) {
-          return {
-            ...task,
+          return { 
+            ...task, 
             completed: !task.completed,
           }
         }
@@ -64,4 +66,11 @@ export class HomeComponent {
       })
     })
   }
+
+  newTaskControl= new FormControl('', {
+    nonNullable: true,
+    validators: [
+      Validators.required
+    ]
+  })
 }

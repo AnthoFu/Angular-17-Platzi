@@ -7,7 +7,8 @@
             placeholder="Type new todo"
             autofocus 
             type="text"
-            (change)="changeHandler($event)"/>
+            [formControl]="newTaskControl"
+            (keydown.enter)="changeHandler()"/>
         </div>
     </header>
     <div class="container todoapp-wrapper">
@@ -22,7 +23,11 @@
                 <!-- [Clase 10] -->
                 <li *ngFor="let task of taskList(); index as i">
                     <div class="view">
-                        <input class="toggle" type="checkbox" [checked]="task.completed" (change)="updateTask(i)"/>
+                        <input 
+                        class="toggle"
+                        type="checkbox" 
+                        [checked]="task.completed" 
+                        (change)="updateTask(i)"/>
                         <label>{{ task.title }}</label>
                         <button class="destroy" (click)="deleteTask(i)"></button>
                     </div>
