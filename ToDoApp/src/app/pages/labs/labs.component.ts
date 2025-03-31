@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms'; // [Clase 16]
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms'; // [Clase 16]
 
 @Component({
   selector: 'app-labs',
@@ -92,6 +92,13 @@ export class LabsComponent {
   });
 
   
+  // [Clase 19] Clases en Angular
 
+  nameControl = new FormControl('AnthoFu',{
+    validators: [
+      Validators.required,
+      Validators.minLength(3),
+    ]
+  })
 }
 

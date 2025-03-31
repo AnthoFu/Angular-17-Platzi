@@ -7,3 +7,16 @@
     display: block;
     background-color: red;
 }
+
+.message-error{
+    color:white;
+    background-color: red;
+    opacity: 0;
+    transition: 500ms;
+}
+
+
+.message-error.show {
+    opacity: 1;
+    transition: 500ms;
+}

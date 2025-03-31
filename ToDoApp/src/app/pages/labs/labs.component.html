@@ -119,4 +119,15 @@
       <p>Hola, {{person().name}} ¡Cambia el numero de aca abajo para cambiar el ancho de su estilo!</p>
       <input type="number" [formControl]="widthControl">
       <span class="box" [style.width.px]="widthControl.value"></span>
+
+      <hr/>
+      <!-- [Clase 19] Clases en angular -->
+      <p>
+        <input type="text" [formControl]="colorControl">
+        <span class="message-error">Nombre invalido</span>
+      </p>
+      <p>
+        <input type="text" [formControl]="nameControl">
+        <span class="message-error" [class.show]="nameControl.invalid && nameControl.touched">Nombre invalido</span>
+      </p>
 </div>

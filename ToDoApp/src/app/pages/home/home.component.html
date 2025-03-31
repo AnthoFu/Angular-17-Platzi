@@ -16,7 +16,7 @@
         <section class="main">
             <ul class="todo-list">
                 <!-- [Clase 10] -->
-                <li *ngFor="let task of taskList(); index as i">
+                <li *ngFor="let task of taskList(); index as i " [class.completed]="task.completed"> <!-- [Clase 19] Clases en angular-->
                     <div class="view">
                         <input 
                         class="toggle"
