@@ -9,6 +9,15 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms'; // [Clase 16]
   styleUrl: './labs.component.css'
 })
 export class LabsComponent {
+
+  constructor (){
+    this.colorControl.valueChanges.subscribe(value =>{
+      console.log('[colorControl]:' ,value)
+    })
+  }
+
+
+
   welcome = '¡Bienvenido!'
   taskList= signal ([
     'Instalar el Angular CLI',
@@ -78,11 +87,11 @@ export class LabsComponent {
   // [Clase 16] controlando un input
 
   colorControl = new FormControl();
+  widthControl = new FormControl(50, {
+    nonNullable: true,
+  });
+
   
-  constructor (){
-    this.colorControl.valueChanges.subscribe(value =>{
-      console.log('[colorControl]:' ,value)
-    })
-  }
+
 }
 

@@ -108,4 +108,15 @@
       <hr/>
       <input type="color" [formControl]="colorControl">
       <p>Color: {{colorControl.value }} </p>
+      <!-- [Clase 18] Estilos al modo Angular -->
+      <svg>
+        <g>
+          <rect x="0" y="0" height="100" width="100" [attr.fill]="colorControl.value"/>
+        </g>
+      </svg>
+      <hr/>
+
+      <p>Hola, {{person().name}} ¡Cambia el numero de aca abajo para cambiar el ancho de su estilo!</p>
+      <input type="number" [formControl]="widthControl">
+      <span class="box" [style.width.px]="widthControl.value"></span>
 </div>
