@@ -97,7 +97,7 @@ export class HomeComponent {
     this.taskList.update((taskList)=> { // obtenemos la lista de tareas
       return taskList.map((task, position) => { // recorremos la lista
         if (position === index) { // si el índice coincide con el que estamos en este momento
-          return { 
+          return {
             ...task, // creamos una copia de la tarea
             title: input.value, // actualizamos el texto de la tarea
             editing: false //
