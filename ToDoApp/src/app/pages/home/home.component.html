@@ -1,10 +1,10 @@
 <section class="todoapp">
     <header class="header">
         <div class="container">
-            <h2>My Day</h2>
-            <p>All my tasks in one place</p>
+            <h2>To Do Task Manager :D</h2>
+            <p>Todas mis tareas en un solo lugar.</p>
             <input class="new-todo"
-            placeholder="Type new todo"
+            placeholder="Escribe aqui una nueva tarea"
             autofocus 
             type="text"
             [formControl]="newTaskControl"
@@ -17,7 +17,7 @@
             <ul class="todo-list">
                 <!-- [Clase 10] -->
                 <li (dblclick)="updateTaskEditingMode(i)" 
-                *ngFor="let task of taskList(); index as i "
+                *ngFor="let task of taskByFilter(); index as i "
                 [class.completed]="task.completed"
                 [class.editing]="task.editing"> <!-- [Clase 20] Clases en angular-->
                     <div class="view">
@@ -73,13 +73,13 @@
             
             <ul class="filters">
                 <li>
-                    <a routerLink="/" class="selected">All</a>
+                    <a (click)="changeFilter('all')" [class.selected]="filter() === 'all'">All</a>
                 </li>
                 <li>
-                    <a routerLink="/pending">Pending</a>
+                    <a (click)="changeFilter('pending')" [class.selected]="filter() === 'pending'">Pending</a>
                 </li>
                 <li>
-                    <a routerLink="/completed">Completed</a>
+                    <a (click)="changeFilter('completed')" [class.selected]="filter() === 'completed'">Completed</a>
                 </li>
             </ul>
             <!-- Hidden if no completed items are left ↓ -->

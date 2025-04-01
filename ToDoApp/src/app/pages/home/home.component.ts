@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Task} from '../../models/task.model'
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms'; //[Clase 17] Manejo de formularios
@@ -27,9 +27,26 @@ export class HomeComponent {
     {
       id: Date.now(),
       title: 'Estudiar Platzi',
-      completed: false,
+      completed: true,
     },
   ]);
+
+
+  //[Clase 21] Estados compuestos computed
+  filter = signal<'all' | 'pending' | 'completed'>('all');
+  taskByFilter = computed (() =>{  
+    const filter = this.filter(); 
+    const tasks = this.taskList();
+    if (filter === 'pending'){
+      return tasks.filter(task => !task.completed);
+    }
+    if (filter === 'completed'){
+      return tasks.filter(task => task.completed);
+    }
+    return tasks;
+  }
+)
+
 
 // [Modificado en Clase 17]
   changeHandler(){ 
@@ -74,6 +91,7 @@ export class HomeComponent {
     ]
   })
 
+  // [Clase 20] Editing mode
   updateTaskEditingMode(index: number){
     this.taskList.update((taskList)=> { // obtenemos la lista de tareas
       return taskList.map((task, position) => { // recorremos la lista
@@ -107,4 +125,9 @@ export class HomeComponent {
       })
     })
   }
+
+  changeFilter(filter: 'all' | 'pending' | 'completed'){ // función para cambiar el filtro, solo toma all, pending o completed
+    this.filter.set(filter);
+  }
+
 }
