@@ -56,10 +56,10 @@ export class HomeComponent {
   updateTask(index:number){ // función para actualizar tarea
     this.taskList.update((taskList)=> { // obtenemos la lista de tareas
       return taskList.map((task, position) => { // recorremos la lista
-        if (position === index) {
+        if (position === index) { 
           return { 
-            ...task, 
-            completed: !task.completed,
+            ...task, // creamos un nuevo objeto tarea
+            completed: !task.completed, // actualizamos el estado 'completed' de la tarea
           }
         }
         return task;
@@ -73,4 +73,38 @@ export class HomeComponent {
       Validators.required
     ]
   })
+
+  updateTaskEditingMode(index: number){
+    this.taskList.update((taskList)=> { // obtenemos la lista de tareas
+      return taskList.map((task, position) => { // recorremos la lista
+        if (position === index) { // si el índice coincide con el que estamos en este momento
+          return { 
+            ...task, // creamos una copia de la tarea
+            editing: true, // cambiamos el modo de edición
+          }
+        }
+        return {
+          ...task, // creamos una copia de la tarea
+          editing: false, // el modo de edición está desactivado
+        };
+      })
+    })
+  }
+
+
+  updateTaskText(index: number, event: Event){
+    const input = event.target as HTMLInputElement;
+    this.taskList.update((taskList)=> { // obtenemos la lista de tareas
+      return taskList.map((task, position) => { // recorremos la lista
+        if (position === index) { // si el índice coincide con el que estamos en este momento
+          return { 
+            ...task, // creamos una copia de la tarea
+            title: input.value, // actualizamos el texto de la tarea
+            editing: false //
+          }
+        }
+        return task;
+      })
+    })
+  }
 }
