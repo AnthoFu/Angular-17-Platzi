@@ -17,3 +17,7 @@ Dentro de la carpeta browser estan:
 *main-QFYCJODW.js
 *polyfills-FFHMD2TL.js
 *styles-JQQFZKRM.css
+
+utilizamos FIREBASE para el hosting de este proyecto.
+El URL proporcionado fue el siguiente:
+https://to-do-app-9777b.web.app/
