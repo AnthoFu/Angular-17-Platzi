@@ -130,4 +130,41 @@
         <input type="text" [formControl]="nameControl">
         <span class="message-error" [class.show]="nameControl.invalid && nameControl.touched">Nombre invalido</span>
       </p>
+
+      <!-- [Clase 25] Sintaxis nueva en Angular -->
+
+
+
+      <hr/>
+
+
+      <!-- Sintaxsis nueva -->
+      @if (person().name ==='AnthoFu'){
+        Hola, soy AnthoFu, el actual desarrollador de este proyecto.
+      }
+
+
+      <!-- Sintaxis legacy -->
+      <div *ngIf="person().name ==='AnthoFu'">
+        Hola, soy AnthoFu, el actual desarrollador de este proyecto.
+      </div>
+
+      <hr/>
+
+      <!-- Sintaxis nueva, if, else -->
+      @if (person().name === 'AnthoFu' && person().edad > 18){
+        <p>¡Hola! Soy {{person().name}} y soy mayor de edad, tengo <strong>{{person().edad}}</strong> años.</p>
+      } @else {
+        <p>¡Hola! Soy {{person().name}} y soy menor de edad, tengo <strong>{{person().edad}}</strong> años.</p>
+      }
+
+      <!-- Sintaxis vieja con if, ng-template -->
+      <div *ngIf="person().name === 'AnthoFu' && person().edad > 18; else elseBlock">
+        <p>¡Hola! Soy {{person().name}} y soy mayor de edad, tengo <strong>{{person().edad}}</strong> años.</p>
+      </div>
+
+      <!-- <ng-template #elseBlock>
+        ¡Hola! Soy AnthoFu, pero no soy mayor de 18 años.
+      </ng-template>
+      -->
 </div>
