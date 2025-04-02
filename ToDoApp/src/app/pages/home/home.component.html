@@ -13,7 +13,7 @@
     </header>
     <div class="container todoapp-wrapper">
         <!-- This section should be hidden by default and shown when there are todos -->
-        <section class="main">
+        <section class="main" *ngIf="taskList().length>0">
             <ul class="todo-list">
                 <!-- [Clase 10] -->
                 <li (dblclick)="updateTaskEditingMode(i)" 
@@ -57,20 +57,18 @@
                 </li> -->
             </ul> 
         </section>
-        <!-- This footer should be hidden by default and shown when there are todos -->
-        <footer class="footer">
+        
+        <footer class="footer" *ngIf="taskList().length>0">
             
-            <span *ngIf="taskList().length=== 1; else multipleItems" class="todo-count">
-                <strong>{{ taskList().length }}</strong> item left
+            <span *ngIf="taskByFilter().length=== 1; else multipleItems" class="todo-count">
+                <strong>{{ taskByFilter().length }}</strong> item left <!--[Clase 22] Cambio de TaskList().length a taskByFilter().length-->
             </span>
 
             <ng-template #multipleItems>
                 <span class="todo-count">
-                    <strong>{{ taskList().length }}</strong> items left
+                    <strong>{{ taskByFilter().length }}</strong> items left <!--[Clase 22] Cambio de TaskList().length a taskByFilter().length-->
                 </span>
             </ng-template>
-            
-            
             <ul class="filters">
                 <li>
                     <a (click)="changeFilter('all')" [class.selected]="filter() === 'all'">All</a>

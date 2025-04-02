@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, inject, Injector, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Task} from '../../models/task.model'
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms'; //[Clase 17] Manejo de formularios
@@ -11,27 +11,20 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms'; /
   styleUrl: './home.component.css'
 })
 
+
+
 // [Clase 12] NgFor para objetos
 export class HomeComponent {
+  
+
+  
   taskList= signal <Task[]> ([
-    {
-      id: Date.now(),
-      title: 'Crear proyecto',
-      completed: false,
-    },
-    {
-      id: Date.now(),
-      title: 'Crear componentes',
-      completed: false,
-    },
-    {
-      id: Date.now(),
-      title: 'Estudiar Platzi',
-      completed: true,
-    },
+
   ]);
 
 
+
+  
   //[Clase 21] Estados compuestos computed
   filter = signal<'all' | 'pending' | 'completed'>('all');
   taskByFilter = computed (() =>{  
@@ -47,6 +40,25 @@ export class HomeComponent {
   }
 )
 
+  injector = inject(Injector) // Inyectamos la dependencia de injector [Clase 22]
+
+  ngOnInit(): void { // Al iniciar el componente
+    const storage = localStorage.getItem('tasks'); // Obtenemos las tareas de storage
+    if (storage){ // Si hay tareas
+      const tasks = JSON.parse(storage); // Parseamos las tareas
+      this.taskList.set(tasks); // Seteamos las tareas en el observable
+    }
+    this.trackTask(); // Inicializamos el track de tareas
+  }
+
+  trackTask(){ // Función para trackear las tareas
+    effect(()=>{ // Creamos un efecto
+      const tasks = this.taskList(); // Obtenemos las tareas
+      console.log ('[EFFECT]: Efecto ejecutado.', tasks); // Imprimimos las tareas
+      localStorage.setItem('tasks', JSON.stringify(tasks)); // Guardamos las tareas en storage
+    }, {injector: this.injector}) // Inyectamos el injector
+  }
+  
 
 // [Modificado en Clase 17]
   changeHandler(){ 
