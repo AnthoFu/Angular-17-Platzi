@@ -1,0 +1,19 @@
+Para mandar a un estado de 'produccion' se utiliza el comando de NgBuild.
+
+Este comando se utiliza para compilar el proyecto y generar los archivos necesarios para la producción.
+
+Al correr este comando, nos mandara los siguientes archivos:
+
+Una carpeta llamada dist que contiene los archivos compilados y listos para ser subidos a un servidor web
+Dentro de esa carpeta, habra otra carpeta con el nombre de nuestro proyecto (en este caso, to-do-list)
+Este contiene 3 archivos:
+1. 3rdpartylicenses.txt: archivo de licencias de terceros.
+2. prerendered-routes.json: archivo de rutas pre-renderizadas.
+3. carpeta browser: contiene los archivos compilados para el navegador.
+
+Dentro de la carpeta browser estan:
+*favicon.ico
+*index.html
+*main-QFYCJODW.js
+*polyfills-FFHMD2TL.js
+*styles-JQQFZKRM.css
