@@ -167,4 +167,61 @@
         ¡Hola! Soy AnthoFu, pero no soy mayor de 18 años.
       </ng-template>
       -->
+
+      <hr/>
+      <p>[Clase 26] Sintaxis nueva en Angular, &#64;For, &#64;Switch</p>
+      
+      <ul>
+        <p>Total de tareas: {{taskList().length}}</p>
+        <li *ngFor="let task of taskList(); index as i">
+          {{ i }} {{ task }}
+        </li>
+      </ul>
+
+      <ul>
+        @for (task of taskList(); track task; let i = $index){
+          <li>{{ i }} {{ task }}</li>
+        } @empty {
+          <li>No hay tareas.</li>
+        }
+      </ul>
+
+      <h2>Switch tradicional</h2>
+      <div [ngSwitch]="person().name">
+        <p *ngSwitchCase="'adriana'">
+          Yo soy Adriana
+        </p>
+        <p *ngSwitchCase="'jonathan'">
+          Yo soy Jonathan
+        </p>
+        <p *ngSwitchCase="'aldryn'">
+          Yo soy Aldryn
+        </p>
+        <p *ngSwitchCase="'alberto'">
+          Yo soy Alberto
+        </p>
+        <p *ngSwitchDefault>
+          Yo no soy Adriana, Jonathan, Aldryn o Alberto
+        </p>
+
+        <h2>Switch con la nueva sintaxis</h2>
+      <div>
+        @switch (person().name){
+          @case ('adriana'){
+            <p>Yo soy Adriana</p>
+          }
+          @case ('jonathan'){
+            <p>Yo soy Jonathan</p>
+          }
+          @case ('aldryn'){
+            <p>Yo soy Aldryn</p>
+          }
+          @case ('alberto'){
+            <p>Yo soy Alberto</p>
+          }
+          @default{
+            <p>Yo no soy Adriana, Jonathan, Aldryn o Alberto</p>
+          }
+        }
+      </div>
 </div>
