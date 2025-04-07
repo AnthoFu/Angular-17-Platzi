@@ -1,87 +1,91 @@
 <section class="todoapp">
-    <header class="header">
-        <div class="container">
-            <h2>To Do Task Manager :D</h2>
-            <p>Todas mis tareas en un solo lugar.</p>
-            <input class="new-todo"
-            placeholder="Escribe aqui una nueva tarea"
-            autofocus 
-            type="text"
-            [formControl]="newTaskControl"
-            (keydown.enter)="changeHandler()"/>
-        </div>
+  <header class="header">
+    <div class="container">
+      <h2>To Do Task Manager :D</h2>
+      <p>Todas mis tareas en un solo lugar.</p>
+      <input class="new-todo"
+        placeholder="Escribe aqui una nueva tarea"
+        autofocus
+        type="text"
+        [formControl]="newTaskControl"
+        (keydown.enter)="changeHandler()"/>
+      </div>
     </header>
     <div class="container todoapp-wrapper">
-        <!-- This section should be hidden by default and shown when there are todos -->
-        <section class="main" *ngIf="taskList().length>0">
-            <ul class="todo-list">
-                <!-- [Clase 10] -->
-                <li (dblclick)="updateTaskEditingMode(i)" 
-                *ngFor="let task of taskByFilter(); index as i "
+      <!-- This section should be hidden by default and shown when there are todos -->
+      @if (taskList().length>0) {
+        <section class="main">
+          <ul class="todo-list">
+            <!-- [Clase 10] -->
+            @for (task of taskByFilter(); track task; let i = $index) {
+              <li (dblclick)="updateTaskEditingMode(i)"
                 [class.completed]="task.completed"
                 [class.editing]="task.editing"> <!-- [Clase 20] Clases en angular-->
-                    <div class="view">
-                        <input 
-                        class="toggle"
-                        type="checkbox" 
-                        [checked]="task.completed" 
-                        (change)="updateTask(i)"/>
-                        <label>{{ task.title }}</label>
-                        <button class="destroy" (click)="deleteTask(i)"></button>
-                    </div>
-                    <input class="edit" (keydown.enter)="updateTaskText(i, $event)" [value]="task.title" />
+                <div class="view">
+                  <input
+                    class="toggle"
+                    type="checkbox"
+                    [checked]="task.completed"
+                    (change)="updateTask(i)"/>
+                    <label>{{ task.title }}</label>
+                    <button class="destroy" (click)="deleteTask(i)"></button>
+                  </div>
+                  <input class="edit" (keydown.enter)="updateTaskText(i, $event)" [value]="task.title" />
                 </li>
-                <!-- <li class="completed">
-                    <div class="view">
-                        <input class="toggle" type="checkbox" checked />
-                        <label>Learn JavaScript</label>
-                        <button class="destroy"></button>
-                    </div>
-                    <input class="edit" value="Learn JavaScript" />
-                </li>
-                <li>
-                    <div class="view">
-                        <input class="toggle" type="checkbox" />
-                        <label>Buy a unicorn</label>
-                        <button class="destroy"></button>
-                    </div>
-                    <input class="edit" value="Buy a unicorn" />
-                </li>
-                <li class="editing">
-                    <div class="view">
-                        <input class="toggle" type="checkbox" />
-                        <label>Make dishes</label>
-                        <button class="destroy"></button>
-                    </div>
-                    <input class="edit" value="Make dishes" />
-                </li> -->
-            </ul> 
+              }
+              <!-- <li class="completed">
+              <div class="view">
+                <input class="toggle" type="checkbox" checked />
+                <label>Learn JavaScript</label>
+                <button class="destroy"></button>
+              </div>
+              <input class="edit" value="Learn JavaScript" />
+            </li>
+            <li>
+              <div class="view">
+                <input class="toggle" type="checkbox" />
+                <label>Buy a unicorn</label>
+                <button class="destroy"></button>
+              </div>
+              <input class="edit" value="Buy a unicorn" />
+            </li>
+            <li class="editing">
+              <div class="view">
+                <input class="toggle" type="checkbox" />
+                <label>Make dishes</label>
+                <button class="destroy"></button>
+              </div>
+              <input class="edit" value="Make dishes" />
+            </li> -->
+          </ul>
         </section>
-        
-        <footer class="footer" *ngIf="taskList().length>0">
-            
-            <span *ngIf="taskByFilter().length=== 1; else multipleItems" class="todo-count">
-                <strong>{{ taskByFilter().length }}</strong> item left <!--[Clase 22] Cambio de TaskList().length a taskByFilter().length-->
-            </span>
+      }
 
-            <ng-template #multipleItems>
-                <span class="todo-count">
-                    <strong>{{ taskByFilter().length }}</strong> items left <!--[Clase 22] Cambio de TaskList().length a taskByFilter().length-->
-                </span>
-            </ng-template>
-            <ul class="filters">
-                <li>
-                    <a (click)="changeFilter('all')" [class.selected]="filter() === 'all'">All</a>
-                </li>
-                <li>
-                    <a (click)="changeFilter('pending')" [class.selected]="filter() === 'pending'">Pending</a>
-                </li>
-                <li>
-                    <a (click)="changeFilter('completed')" [class.selected]="filter() === 'completed'">Completed</a>
-                </li>
-            </ul>
-            <!-- Hidden if no completed items are left ↓ -->
-            <button class="clear-completed">Clear completed</button>
+      @if (taskList().length>0) {
+        <footer class="footer">
+          @if (taskByFilter().length=== 1) {
+            <span class="todo-count">
+              <strong>{{ taskByFilter().length }}</strong> item left <!--[Clase 22] Cambio de TaskList().length a taskByFilter().length-->
+            </span>
+          } @else {
+            <span class="todo-count">
+              <strong>{{ taskByFilter().length }}</strong> items left <!--[Clase 22] Cambio de TaskList().length a taskByFilter().length-->
+            </span>
+          }
+          <ul class="filters">
+            <li>
+              <a (click)="changeFilter('all')" [class.selected]="filter() === 'all'">All</a>
+            </li>
+            <li>
+              <a (click)="changeFilter('pending')" [class.selected]="filter() === 'pending'">Pending</a>
+            </li>
+            <li>
+              <a (click)="changeFilter('completed')" [class.selected]="filter() === 'completed'">Completed</a>
+            </li>
+          </ul>
+          <!-- Hidden if no completed items are left ↓ -->
+          <button class="clear-completed">Clear completed</button>
         </footer>
+      }
     </div>
-</section>
+  </section>

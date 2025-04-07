@@ -1,11 +1,11 @@
 import { Component, computed, effect, inject, Injector, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import {Task} from '../../models/task.model'
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms'; //[Clase 17] Manejo de formularios
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   standalone:true, // <--- Volvemos el componente standalone [fuera de clase 12, para que funcionara]
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
