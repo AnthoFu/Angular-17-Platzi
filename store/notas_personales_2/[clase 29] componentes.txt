@@ -1,0 +1,21 @@
+Angular usa templateUrl para vincular un archivo HTML separado y styleUrls para CSS.
+
+Ejemplo típico:
+
+templateUrl: './app.component.html',
+styleUrls: ['./app.component.css']
+
+Si el template es pequeño, podemos usar template directamente y omitir styleUrls:
+
+Ejemplo:
+
+template: '<router-outlet />'
+Ventajas:
+
+Separación de lógica y vista: útil para templates grandes y complejos.
+Simplicidad y eficiencia: ideal para templates pequeños, evita archivos separados innecesarios.
+Consideraciones:
+
+Si el template es pequeño, usar template directamente.
+Si el template crece, usar templateUrl.
+Omitir styleUrls si no hay estilos específicos o son mínimos.
