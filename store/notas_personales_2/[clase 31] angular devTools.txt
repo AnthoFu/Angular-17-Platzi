@@ -1,0 +1,9 @@
+Hay una extension en google para el inspector de elementos de chrome, que te permite ver el código fuente de una página web si
+esta hecha en angular, esta extension se llama Angular DevTools.
+
+Normalmente el codigo fuente de una pagina web de angular 
+los elementos de la pagina tienen nombres bastantes confusos, pero con esta extension
+es mucho mas facil ver el codigo fuente de la pagina web ya que coloca sus nombres como esta en el codigo fuente de la pagina web.
+
+Extension de Crhome: Angular DevTools
+https://chromewebstore.google.com/detail/angular-devtools/
