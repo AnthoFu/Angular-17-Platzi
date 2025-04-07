@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ProductComponent {
 
-  img= 'https://picsum.photos/640/640?r='+ Math.random()
-
+  @Input({required:true}) img=''; // A diferencia del tutorial en angular 19 se maneja mas directo
+  // En angular 17 seria de la siguiente forma:
+  // @Input({required:true}) img: string = '';
+  @Input({required:true}) price=0;
+  @Input({required:true}) title= '';
 }
