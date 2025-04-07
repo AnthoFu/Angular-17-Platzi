@@ -1,0 +1,8 @@
+Desde la clase 28 se comienza a implementar tailwind, para instalarlo se siguieron los pasos en la documentacion
+
+documentacion tailwind:
+https://tailwindcss.com/docs/installation/framework-guides/angular
+
+Al importar tailwind con scss, da un warning de que no se puede usar tailwind con scss, por lo que se cambio a usar tailwind con css directamente.
+
+Si es necesario volver a usar scss, se puede crear un archivo scss para el componente en especifico.
