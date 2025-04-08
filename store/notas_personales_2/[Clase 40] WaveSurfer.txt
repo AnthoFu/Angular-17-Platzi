@@ -1,0 +1,14 @@
+En la clase 40 se implemento la libreria WaveSurfer.js. 
+Su documentacion es:
+https://wavesurfer.xyz/
+
+
+// Nuevo metodo de obtencion de elementos desde angular:
+
+En JavaScript clásico se obtiene un elemento como
+
+container = document.getElementById('wavecontainer')
+
+angular nos ofrece otra forma de acceder a elementos del DOM
+
+@ViewChild('wavecontainer') container!: ElementRef
