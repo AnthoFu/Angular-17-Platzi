@@ -1,0 +1,18 @@
+Comandos utilizados en esta clase:
+
+1. ng g c domains/shared/components/counter
+2. ng g c domains/info/pages/about
+
+
+
+Ciclo de vida de los componentes
+
+constructor
+ngOnChanges
+ngOnInit
+ngDoCheck
+ngAfterContentInit
+ngAfterContentChecked
+ngAfterViewInit
+ngAfterViewCheck
+ngOnDestroy
