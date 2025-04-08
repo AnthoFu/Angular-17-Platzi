@@ -1,8 +1,8 @@
 <div class="grid grid-cols-3">
-    <app-product title="Producto 1" [price]="12" img="https://picsum.photos/640/640?r=1">
+    <app-product title="Producto 1" [price]="12" img="https://picsum.photos/640/640?r=1" (addToCart)="getDataFromProduct($event)"> <!--Aqui se agrega el evento para escuchar el mensaje enviado de addToCart, donde su funcion es addToCartHandler()-->
     </app-product >
 
-    <app-product title="Producto 2" [price]="24" img="https://picsum.photos/640/640?r=2">
+    <app-product title="Producto 2" [price]="24" img="https://picsum.photos/640/640?r=2"> <!--Como los otros elementos no tienen el llamado del output del componente hijo, no mandara el console log del addToCartHandler()-->
     </app-product>
 
     <app-product title="Producto 3" [price]="56" img="https://picsum.photos/640/640?r=3">

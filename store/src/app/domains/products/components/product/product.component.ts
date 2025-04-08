@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -13,4 +13,12 @@ export class ProductComponent {
   // @Input({required:true}) img: string = '';
   @Input({required:true}) price=0;
   @Input({required:true}) title= '';
+
+
+  @Output() addToCart = new EventEmitter(); // Creamos un Output para mandarselo al componente padre list.component
+
+  addToCartHandler(){ // Creamos un metodo para el evento llamado addToCartHandler
+    console.log ('[addToCart]: Click del compontente hijo.') // Imprimimos un mensaje en la consola cada que demos click
+    this.addToCart.emit('Ejemplo de mensaje desde el hijo.') // Mandamos el mensaje al componente padre cada que demos click y este siendo llamado
+  }
 }

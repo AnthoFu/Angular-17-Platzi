@@ -9,5 +9,8 @@ import { ProductComponent } from '../../components/product/product.component';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
+  getDataFromProduct(event:string){
+    console.log('[Componente padre]:', event)
+  }
 
 }
