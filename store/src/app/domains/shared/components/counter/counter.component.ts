@@ -1,5 +1,4 @@
-import { Component, Input,  SimpleChanges } from '@angular/core';
-
+import { Component, Input,  SimpleChanges, OnInit } from '@angular/core';
 @Component({
   selector: 'app-counter',
   imports: [],
@@ -22,5 +21,27 @@ export class CounterComponent {
     console.log('[Counter] ngOnChanges activado.');
     console.log ('-'.repeat(10));
     console.log (changes);
+  }
+
+
+  ngOnInit(): void {
+    //Se llama despues del constructor, iniciando las propiedades de input input properties y el primero en llamar el ngOnChanges.
+    //Asyncrona, de un solo uso
+    console.log('[Counter] ngOnInit activado.');
+    console.log ('-'.repeat(10));
+    console.log ('[Counter] ngOninit: Duracion =>', this.duration);
+    console.log ('[Counter] ngOninit: Mensaje =>', this.message);
+  }
+
+  ngAfterViewInit(): void {
+    //Se llama cuando los hijos de ESTE componente ya fueron renderizados
+    console.log('[Counter] ngAfterViewInit activado.');
+    console.log ('-'.repeat(10));
+  }
+
+  ngOnDestroy(): void {
+    // Se llama cuando el componente ya no existe en la vista, un ejemplo es con los NgIf
+    console.log('[Counter] ngOnDestroy activado.');
+    console.log ('-'.repeat(10));
   }
 }

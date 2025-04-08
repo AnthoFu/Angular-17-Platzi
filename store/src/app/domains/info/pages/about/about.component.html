@@ -2,6 +2,8 @@
 
 <input type="text" [value]="message()" (change)="changeMessage($event)">
 
-<app-counter [duration]="duration()" [message]="message()">
+@if(duration() > 0){
+    <app-counter [duration]="duration()" [message]="message()">
+    </app-counter>
+}
 
-</app-counter>
