@@ -21,6 +21,10 @@ export class CounterComponent {
     console.log('[Counter] ngOnChanges activado.');
     console.log ('-'.repeat(10));
     console.log (changes);
+    const duration = changes['duration'];
+    if (duration && duration.currentValue !== duration.previousValue){ // Si duration no es undefined y su valor es diferente al valor anterior
+      this.hacerAlgo();
+    }
   }
 
 
@@ -43,5 +47,11 @@ export class CounterComponent {
     // Se llama cuando el componente ya no existe en la vista, un ejemplo es con los NgIf
     console.log('[Counter] ngOnDestroy activado.');
     console.log ('-'.repeat(10));
+  }
+
+
+  hacerAlgo(){
+    console.log('[hacerAlgo]: Cambio duration.')
+    // Se puede correr logica asincrona
   }
 }
