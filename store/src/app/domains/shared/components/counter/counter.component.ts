@@ -1,13 +1,17 @@
-import { Component, Input,  SimpleChanges, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input,  SimpleChanges, signal } from '@angular/core';
 @Component({
   selector: 'app-counter',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.scss'
 })
 export class CounterComponent {
   @Input ({required:true}) duration = 0;
   @Input ({required:true}) message = '';
+  counter = signal(0);
+  counterRef: number | undefined;
+
 
   constructor () {
     // El constructor sirve para crear valores de forma directa y NO debe ser ASYNC
@@ -35,6 +39,10 @@ export class CounterComponent {
     console.log ('-'.repeat(10));
     console.log ('[Counter] ngOninit: Duracion =>', this.duration);
     console.log ('[Counter] ngOninit: Mensaje =>', this.message);
+    this.counterRef = window.setInterval(()=>{
+      this.counter.update(statePrev => statePrev + 1);
+      console.log('[Counter] Run interval');
+    }, 1000)
   }
 
   ngAfterViewInit(): void {
@@ -47,6 +55,7 @@ export class CounterComponent {
     // Se llama cuando el componente ya no existe en la vista, un ejemplo es con los NgIf
     console.log('[Counter] ngOnDestroy activado.');
     console.log ('-'.repeat(10));
+    window.clearInterval(this.counterRef); // Al destruir el componente se elimina el intervalo
   }
 
 
