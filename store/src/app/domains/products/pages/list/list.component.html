@@ -1,6 +1,6 @@
-<div class="grid grid-cols-3 gap-8">
+<div class="grid grid-cols-5 gap-8 px-4 mt-5">
     @for (product of products(); track product){
-    <app-product 
+    <app-product
     [product]="product"
     (addToCart)="getDataFromProduct($event)"> <!--Aqui se agrega el evento para escuchar el mensaje enviado de addToCart, donde su funcion es addToCartHandler()-->
     </app-product >
