@@ -15,7 +15,7 @@ export class ProductComponent {
   @Output() addToCart = new EventEmitter(); // Creamos un Output para mandarselo al componente padre list.component
 
   addToCartHandler(){ // Creamos un metodo para el evento llamado addToCartHandler
-    console.log ('[addToCart]: Click del compontente hijo.') // Imprimimos un mensaje en la consola cada que demos click
-    this.addToCart.emit('Ejemplo de mensaje desde el hijo.') // Mandamos el mensaje al componente padre cada que demos click y este siendo llamado
+    console.log ('[addToCart]: Producto agregado') // Imprimimos un mensaje en la consola cada que demos click
+    this.addToCart.emit(this.product) // Mandamos el mensaje al componente padre cada que demos click y este siendo llamado
   }
 }

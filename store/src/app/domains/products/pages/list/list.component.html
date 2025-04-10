@@ -1,8 +1,9 @@
 <div class="grid grid-cols-5 gap-8 px-4 mt-5">
+    <h3>Cantidad de productos: {{cartProducts().length}} </h3>
     @for (product of products(); track product){
     <app-product
     [product]="product"
-    (addToCart)="getDataFromProduct($event)"> <!--Aqui se agrega el evento para escuchar el mensaje enviado de addToCart, donde su funcion es addToCartHandler()-->
+    (addToCart)="addToCart($event)"> <!--Aqui se agrega el evento para escuchar el mensaje enviado de addToCart, donde su funcion es addToCartHandler()-->
     </app-product >
 }
 </div>

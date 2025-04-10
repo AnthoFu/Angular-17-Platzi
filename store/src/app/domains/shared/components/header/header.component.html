@@ -41,4 +41,11 @@
             </svg>
         </button>
     </div>
+
+    <div>
+        @for (product of cartProducts();track product){
+            <p> {{product.title}} </p>
+            <p> {{product.price}} </p>
+        }
+    </div>
 </div>

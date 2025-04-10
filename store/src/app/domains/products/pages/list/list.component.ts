@@ -13,6 +13,7 @@ import { product } from '../../../shared/components/models/product.model'
 export class ListComponent {
   
   products = signal<product[]>([]);
+  cartProducts = signal<product[]>([]);
 
   constructor(){ // En el constructor, al iniciar el componente
     const initProduct: product[] = [ // Creamos el array de productos
@@ -88,12 +89,13 @@ export class ListComponent {
         creationAt: new Date().toISOString(),
       }
     ] // Fin de los ejemplos de productos
-    
+
     this.products.set(initProduct);
   }
 
-  getDataFromProduct(event:string){
-    console.log('[Componente padre]:', event)
+  addToCart(product:product){
+    this.cartProducts.update(prevState=> [...prevState, product]);
+    console.log('[List] Producto agregado al carrito.');
   }
 
 }
