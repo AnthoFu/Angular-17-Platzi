@@ -30,8 +30,65 @@ export class ListComponent {
         price: 9.99,
         image: 'https://picsum.photos/640/640?r2',
         creationAt: new Date().toISOString(),
+      },
+
+      {
+        id: Date.now(),
+        title: 'Product 3',
+        price: 8.99,
+        image: 'https://picsum.photos/640/640?r3',
+        creationAt: new Date().toISOString(),
+      },
+
+      {
+        id: Date.now(),
+        title: 'Product 4',
+        price: 7.99,
+        image: 'https://picsum.photos/640/640?r4',
+        creationAt: new Date().toISOString(),
+      },
+
+      {
+        id: Date.now(),
+        title: 'Product 5',
+        price: 6.99,
+        image: 'https://picsum.photos/640/640?r5',
+        creationAt: new Date().toISOString(),
+      },
+
+      {
+        id: Date.now(),
+        title: 'Product 6',
+        price: 5.99,
+        image: 'https://picsum.photos/640/640?r6',
+        creationAt: new Date().toISOString(),
+      },
+
+      {
+        id: Date.now(),
+        title: 'Product 7',
+        price: 4.99,
+        image: 'https://picsum.photos/640/640?r7',
+        creationAt: new Date().toISOString(),
+      },
+
+      {
+        id: Date.now(),
+        title: 'Product 8',
+        price: 3.99,
+        image: 'https://picsum.photos/640/640?r8',
+        creationAt: new Date().toISOString(),
+      },
+
+      {
+        id: Date.now(),
+        title: 'Product 9',
+        price: 2.99,
+        image: 'https://picsum.photos/640/640?r9',
+        creationAt: new Date().toISOString(),
       }
-    ]
+    ] // Fin de los ejemplos de productos
+    
     this.products.set(initProduct);
   }
 
