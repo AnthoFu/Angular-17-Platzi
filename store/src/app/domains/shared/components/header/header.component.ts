@@ -1,4 +1,4 @@
-import { Component, computed, Input, signal } from '@angular/core';
+import { Component, computed, Input, signal, SimpleChanges } from '@angular/core';
 import { product } from '../models/product.model';
 
 @Component({
@@ -11,9 +11,13 @@ export class HeaderComponent {
 
   hideSideMenu = signal(true);
   @Input({required: true}) cartProducts: product[] = [];
+  total = signal(0); // Creamos un signal con el precio total de los productos
 
-  ngOnInit() {
-    this.totalPrice()
+  ngOnChanges(changes: SimpleChanges) {
+    const cartProducts = changes['cartProducts']; // Definimos cartProducts y preguntamos si hay cambios
+      if (cartProducts){ // Si hay cambios
+        this.total.set(this.totalPrice()); // Ejecuta la funcion totalPrice y actualiza el signal total
+      }
   }
 
   toogleSideMenu (){

@@ -1,0 +1,13 @@
+En los templates de angular no es bien visto llamar alguna funcion en el html que no sea un signal.
+
+En el caso de la [Clase 45] se puede ver como se llama a la funcion 'totalPrice()' en el header.component.html, lo cual no es correcto.
+Esto podria ocasionar problemas de rendimiento y dificultar la depuracion del codigo.
+
+Lo mejor que se pudo realizar en este caso es llamar a la funcion cuando se detecte un cambio en el objeto 'cartProducts' y no en el html directamente.
+
+En el caso definimos una signal llamada 'total', que se cambia cuando se detecta un cambio en el objeto 'cartProducts'.
+
+Una vez definida la signal, se puede llamar la funcion 'totalPrice()' en el ngOnChanges cada que detecte un cambio en el 'cartProducts'.
+
+Y en el html llamamos la signal 'total()'
+
