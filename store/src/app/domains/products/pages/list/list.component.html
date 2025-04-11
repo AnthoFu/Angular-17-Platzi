@@ -1,5 +1,6 @@
+<app-header [cartProducts]="cartProducts()"></app-header>
+
 <div class="grid grid-cols-5 gap-8 px-4 mt-5">
-    <h3>Cantidad de productos: {{cartProducts().length}} </h3>
     @for (product of products(); track product){
     <app-product
     [product]="product"

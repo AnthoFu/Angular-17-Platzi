@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, computed, Input, signal } from '@angular/core';
 import { product } from '../models/product.model';
 
 @Component({
@@ -9,12 +9,21 @@ import { product } from '../models/product.model';
 })
 export class HeaderComponent {
 
-
   hideSideMenu = signal(true);
   @Input({required: true}) cartProducts: product[] = [];
 
+  ngOnInit() {
+    this.totalPrice()
+  }
 
   toogleSideMenu (){
     this.hideSideMenu.update(prevState => !prevState);
   }
+
+
+  totalPrice (){ // Funcion para calcular el valor total de todos los productos agregagos a cartProducts
+    const total = this.cartProducts.reduce((totalPrice, product) => totalPrice + product.price, 0); // Definimos la variable total 
+    return total; // Retornamos la variable total
+  }
+
 }
