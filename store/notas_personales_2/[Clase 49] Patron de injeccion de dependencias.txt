@@ -1,0 +1,19 @@
+La inyección de dependencias se utiliza para que los servicios y otros objetos sean proporcionados (inyectados)
+en los componentes o servicios que los necesitan. Angular utiliza el patron Singleton para los servicios
+lo que significa que solo crea una unica instancia del servicio durante toda la vida de la aplicacion.
+
+Flujo de inyeccion de dependencias
+
+Componente → Servicio: El componente inyecta un servicio que necesita para acceder
+a funcionalidades como lógica de negocio, manejo de datos, etc.
+
+Servicio → Componente: El servicio puede inyectar un componente (aunque esto es menos común y generalmente
+se evita en favor de la inyección de otros servicios).
+
+Servicio → Servicio: No se debería porque podría generar dependencias circulares,
+lo que puede romper el ciclo de vida del servicio, en su lugar se debe de usar un
+servicio intermediario o un patrón de mediador para evitar problemas.
+
+Como se ve una injeccion de dependencias en angular:
+
+private cartService = inject (cartService);
