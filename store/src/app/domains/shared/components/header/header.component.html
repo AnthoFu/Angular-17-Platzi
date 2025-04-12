@@ -47,7 +47,7 @@
         @for (product of cartProducts();track product){
             <div class="my-2 py-2 grid grid-cols-2 items-center justify-items-center bg-gray-200 rounded-3xl">
                 <div class="w-[50%]">
-                    <img [src]="product.image" [alt]="product.title" class="rounded-2xl">
+                    <img [src]="product.images[0]" [alt]="product.title" class="rounded-2xl">
                 </div>
                 <div>
                     <p class="text-sm"> {{product.title}} </p>
