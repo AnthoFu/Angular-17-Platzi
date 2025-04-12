@@ -1,0 +1,13 @@
+
+Comando utilizado en esta clase:
+
+ng g s domains/shared/services/cart
+
+Creamos un servicio para que funcione como "storage" y asi evitar el problema del [Prop Binding] de la clase 47
+
+Como en el servicio la variable cartProducts se vuelve un signal, podemos utilizar el metodo de computed, el cual solo funciona con signals
+y no con @Inputs.
+
+Eliminamos el @Input de header component
+
+Volvemos el servicio el "Encargado de datos" y el componente que sea solo de la renderizacion del html.

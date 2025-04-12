@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../../components/product/product.component';
 import { product } from '../../../shared/components/models/product.model'
 import { HeaderComponent } from '../../../shared/components/header/header.component';
+import { CartService } from '../../../shared/services/cart.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { HeaderComponent } from '../../../shared/components/header/header.compon
 export class ListComponent {
   
   products = signal<product[]>([]);
-  cartProducts = signal<product[]>([]);
+  private cartService = inject(CartService);
 
   constructor(){ // En el constructor, al iniciar el componente
     const initProduct: product[] = [ // Creamos el array de productos
@@ -95,7 +96,7 @@ export class ListComponent {
   }
 
   addToCart(product:product){
-    this.cartProducts.update(prevState=> [...prevState, product]);
+    this.cartService.addToCart(product);
     console.log('[List] Producto agregado al carrito.');
   }
 

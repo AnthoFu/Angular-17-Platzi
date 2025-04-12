@@ -1,5 +1,6 @@
-import { Component, computed, Input, signal, SimpleChanges } from '@angular/core';
+import { Component, computed, inject, Input, signal, SimpleChanges } from '@angular/core';
 import { product } from '../models/product.model';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,25 +10,18 @@ import { product } from '../models/product.model';
 })
 export class HeaderComponent {
 
-  hideSideMenu = signal(true);
-  @Input({required: true}) cartProducts: product[] = [];
-  total = signal(0); // Creamos un signal con el precio total de los productos
+  hideSideMenu = signal(true); // Asignamos una signal para mantener el menu oculto, por defecto es true
 
-  ngOnChanges(changes: SimpleChanges) {
-    const cartProducts = changes['cartProducts']; // Definimos cartProducts y preguntamos si hay cambios
-      if (cartProducts){ // Si hay cambios
-        this.total.set(this.totalPrice()); // Ejecuta la funcion totalPrice y actualiza el signal total
-      }
-  }
+  private cartService = inject(CartService); // Injectamos el servicio cartService
+  
+  cartProducts = this.cartService.cartProducts; // Obtenemos los productos del carrito
+  
+  total = this.cartService.total; // Obtenemos el total del carrito
+
 
   toogleSideMenu (){
     this.hideSideMenu.update(prevState => !prevState);
   }
 
-
-  totalPrice (){ // Funcion para calcular el valor total de todos los productos agregagos a cartProducts
-    const total = this.cartProducts.reduce((totalPrice, product) => totalPrice + product.price, 0); // Definimos la variable total 
-    return total; // Retornamos la variable total
-  }
 
 }

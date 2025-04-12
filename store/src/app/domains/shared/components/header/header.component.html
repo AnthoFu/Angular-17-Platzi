@@ -19,7 +19,7 @@
         </div>
         <div class="flex items-center">
             <button (click)="toogleSideMenu()" class="p-2 border rounded relative hover:cursor-pointer">
-                <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs"> {{cartProducts.length}} </div>
+                <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs"> {{cartProducts().length}} </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -44,7 +44,7 @@
     </div>
 
     <div>
-        @for (product of cartProducts;track product){
+        @for (product of cartProducts();track product){
             <div class="my-2 py-2 grid grid-cols-2 items-center justify-items-center bg-gray-200 rounded-3xl">
                 <div class="w-[50%]">
                     <img [src]="product.image" [alt]="product.title" class="rounded-2xl">
