@@ -1,0 +1,10 @@
+Los tal conocidos "pipes" son "tuberias" que filtran informacion entre componentes, se utilizan en la mayoria de los casos se encuentran
+en el template del HTML, y se utiliza con el simbolo |.
+
+Un ejemplo de un uso de pipe es {{ product.title | uppercase }}. En este caso, el pipe "uppercase" convierte el texto en mayusculas.
+
+en el {{ product.title | uppercase:'$":symbol:1.0 }} se utiliza el pipe "uppercase" y se le pasa un argumento, en este caso el simbolo "$" y el valor 1.0.
+
+Existen varios tipos de pipe para diferentes casos, se recomienda leer su documentacion en la pagina oficial de angular.
+
+https://angular.dev/guide/templates/pipes

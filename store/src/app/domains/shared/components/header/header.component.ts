@@ -1,10 +1,11 @@
 import { Component, computed, inject, Input, signal, SimpleChanges } from '@angular/core';
 import { product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

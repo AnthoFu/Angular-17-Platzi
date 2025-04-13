@@ -4,8 +4,8 @@
             <img [src]="product.images[0]" [alt]="product.title" class="rounded-lg w-full h-full object-cover object-center group-hover:opacity-75">
         </a>
         <div class="flex flex-col space-y-2 p-4">
-            <h3 class="text-sm text-gray-700">{{ product.title }}</h3>
-            <span class="text-2xl font-bold text-gray-900">{{ product.price }}$</span>
+            <h3 class="text-sm text-gray-700">{{ product.title | uppercase }}</h3>
+            <span class="text-2xl font-bold text-gray-900">{{ product.price |  currency:'$' : 'symbol' : '1.0' }}</span>
             <p class="text-sm font-medium text-gray-500 ">{{ product.description }}</p>
             <button class="text-black bg-green-400 font-medium rounded-lg text-sm px-5 py-2.5 w-full hover:bg-green-600 duration-200"
                 (click)="addToCartHandler()">Agregar al carrito</button>
