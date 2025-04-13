@@ -1,0 +1,38 @@
+Para volver las importaciones mas cortas en el typescript, en el archivo tsconfig.json, debemos agregar la siguiente linea:
+
+"paths":{
+    "@shared/*": ["./src/app/domains/shared/*"]
+}
+
+IMPORTANTE: Que este este en el array compilerOptions
+
+
+Para que? Para poder asi importar los archivos de la carpeta shared de la siguiente manera:
+@shared/(componente que deseemos importar)
+
+En la forma anterior seria de la siguiente forma:
+
+./../../shared/(componente que se desee importar)
+
+Tambien funciona con los que sean de este estilo:
+
+src/app/domains/shared/(Componente que se desee importar)
+
+Entonces para utilizarlo colocamos:
+@shared/(componente que se desee importar)
+
+Hacemos lo mismo con el dominio de products:
+"paths":{
+    "@products/*": ["./src/app/domains/products/*"]
+}
+
+
+Hay un pequeño warning que deberia resolver.
+▲ [WARNING] Expected the "paths" option to be nested inside a "compilerOptions" object [tsconfig.json]
+
+    tsconfig.json:21:2:
+      21 │   "paths":{
+         ╵   ~~~~~~~
+
+Al cerrar el servidor y volverlo a encender se quito el warning, parece ser un falso warning
+
