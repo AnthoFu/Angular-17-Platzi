@@ -1,6 +1,7 @@
 import { CommonModule, CurrencyPipe, UpperCasePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { product } from '@shared/models/product.model';
+import { ReversePipe } from '@shared/pipes/reverse.pipe'; // Importamos el pipe personalizado que realizamos para el ejemplo
 
 
 @Component({

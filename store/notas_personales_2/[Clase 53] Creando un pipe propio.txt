@@ -1,0 +1,7 @@
+Aunque Angular tenga sus propios pipes integrados, podemos crear nuestros propios pipes personalizados para realizar tareas específicas.
+
+Para crear un pipe debemos de realizar el siguiente comando:
+ng g p domains/shared/pipes/reverse <--- Reverse es el nombre del pipe
+
+Tambien creamos el siguiente pipe en la clase
+ng g p domains/shared/pipes/time-ago
