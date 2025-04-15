@@ -1,0 +1,11 @@
+Las directivas son herramientas para la manipulacion del DOM. 
+
+A diferencia de los componentes y servicios que se encargan del renderizado y datos, las directivas
+permiten modificar directamente los elementos del DOM.
+
+Esta no es una practica muy comun ya que Angular se encarga de la manipulacion del DOM mediante señales, pero en 
+ocasiones es necesario una interencion manipulacion manual.
+
+El comando que utilizamos en esta clase para generar una directiva fue:
+
+ng g d domains/shared/directives/highlight
