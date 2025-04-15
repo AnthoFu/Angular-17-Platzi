@@ -1,0 +1,12 @@
+En la clase 56 nos enseñaron a hacer un deploy en vercel.
+Como ya tenia un poco de experiencia con un deploy anterior en vercel, no fue tan complicado.
+
+Para instalar vercel en el proyecto tenemos que colocar el siguiente comando:
+
+npm i -g vercel
+
+Luego para configurar el vercel en la terminal se coloca:
+
+vercel
+
+Luego elegimos el proyecto donde ubicarlo, el nombre y vercel nos dará un url para que podamos ver nuestro proyecto en la web.
