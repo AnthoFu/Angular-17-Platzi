@@ -1,0 +1,16 @@
+Para evitar estar colocando el <div class="container mx-auto">, <app-header/> y estar importando el app-header en cada uno
+de los typescript de cada uno de los componentes, utilizamos un componente compartido (esta en la carpeta shared)
+el cual lo llamamos "layout.component".
+
+Este componente contiene el siguiente codigo:
+
+<div class="container mx-auto>
+    <app-header/>
+    <router-outlet/>
+</div>
+
+Asi los componentes hijos solamente tendran que renderizar lo que contienen dentro de ellos y no tienen que renderizar cada uno el
+header.
+
+En el campo de las rutas 'app.routes.ts' agregamos el nuevo elemento padre, el layout.component con 2 campos children en un array,
+que esos son los componentes hijos que se renderizaran con el router-outlet.

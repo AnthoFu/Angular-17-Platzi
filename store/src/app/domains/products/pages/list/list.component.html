@@ -1,10 +1,7 @@
-<app-header></app-header>
-
 <div class="grid grid-cols-5 gap-8 px-8 mt-5">
     @for (product of products(); track product){
-    <app-product
-    [product]="product"
-    (addToCart)="addToCart($event)"> <!--Aqui se agrega el evento para escuchar el mensaje enviado de addToCart, donde su funcion es addToCartHandler()-->
-    </app-product >
-}
+    <app-product [product]="product" (addToCart)="addToCart($event)">
+        <!--Aqui se agrega el evento para escuchar el mensaje enviado de addToCart, donde su funcion es addToCartHandler()-->
+    </app-product>
+    }
 </div>

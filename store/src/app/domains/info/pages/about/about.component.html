@@ -1,21 +1,19 @@
-
-<div class="container mx-auto">
-    <app-header/>
-    <div class="p-10">
-        <h1 class="text-lg font-bold">About</h1>
-        <p class="text-xs">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto at consequatur debitis distinctio, sint quaerat
-        mollitia <span highlight> Directiva highlight</span> voluptates! Iste quaerat fugit minima quibusdam. Maiores repudiandae quis odio error est officia
+<div class="p-10">
+    <h1 class="text-lg font-bold">About</h1>
+    <p class="text-xs">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto at consequatur debitis
+        distinctio, sint quaerat
+        mollitia <span highlight> Directiva highlight</span> voluptates! Iste quaerat fugit minima quibusdam. Maiores
+        repudiandae quis odio error est officia
         corporis!</p>
-        <p class="text-xs">Numero de clientes: @if (duration() > 0) {
-        <app-counter [duration]="duration()"
-            [message]="message()"></app-counter>
+    <p class="text-xs">Numero de clientes: @if (duration() > 0) {
+        <app-counter [duration]="duration()" [message]="message()"></app-counter>
         }
     </p>
 
     <div>
-        <app-wave-audio audioUrl="cancion-tranquila-para-testeos-de-paginas_040925 (1).mp3"> <!--Este audio se encuentra en la carpeta Public -->
+        <app-wave-audio audioUrl="cancion-tranquila-para-testeos-de-paginas_040925 (1).mp3">
+            <!--Este audio se encuentra en la carpeta Public -->
 
         </app-wave-audio>
-    </div>
     </div>
 </div>
