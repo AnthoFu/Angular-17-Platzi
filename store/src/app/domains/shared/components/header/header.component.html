@@ -7,10 +7,17 @@
             </div>
             <ul class="flex space-x-6">
                 <li>
-                    <a routerLink="/" class="block underline hover:underline" aria-current="page">Productos</a>
+                    <a routerLink="/"
+                    routerLinkActive="underline"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    class="block underline hover:underline"
+                    aria-current="page">Productos</a>
                 </li>
                 <li>
-                    <a routerLink="/about" class="block hover:underline">Acerca de</a>
+                    <a routerLink="/about"
+                    routerLinkActive="underline"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    class="block hover:underline">Acerca de</a>
                 </li>
                 <li>
                     <a routerLink="/servicios" class="block hover:underline">Servicios</a>
