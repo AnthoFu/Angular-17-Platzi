@@ -16,19 +16,15 @@
         </div>
     </div>
     <div class="mt-5 w-full">
-        <h2 class="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">{{product()?.category?.name}}</h2>
         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
-            The Catcher in the Rye
+            {{product()?.title}}
         </h1>
         <p class="leading-relaxed">
-            Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha
-            taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw
-            denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub
-            blue bottle austin listicle pour-over, neutra jean shorts keytar banjo
-            tattooed umami cardigan.
+            {{product()?.description}}
         </p>
-        <p class="title-font font-medium text-2xl text-gray-900 mt-5">$58.00</p>
-        <button class="flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+        <p class="title-font font-medium text-2xl text-gray-900 mt-5">{{product()?.price | currency: '$' : 'symbol' :'1.0'}}</p>
+        <button class="flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
             Add To Cart
         </button>
     </div>
