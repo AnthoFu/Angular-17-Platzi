@@ -1,5 +1,6 @@
 import { CommonModule, CurrencyPipe, UpperCasePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { RouterLinkWithHref } from '@angular/router';
 import { product } from '@shared/models/product.model';
 import { ReversePipe } from '@shared/pipes/reverse.pipe'; // Importamos el pipe personalizado que realizamos para el ejemplo
 import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe'; // Importamos el pipe personalizado que utilizamos con la libreria date-fnc de JS
@@ -7,7 +8,7 @@ import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe'; // Importamos el pipe
 
 @Component({
   selector: 'app-product',
-  imports: [CommonModule, CurrencyPipe, UpperCasePipe],
+  imports: [CommonModule, CurrencyPipe, UpperCasePipe, RouterLinkWithHref],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })

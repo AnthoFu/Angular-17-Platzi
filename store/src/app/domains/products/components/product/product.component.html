@@ -1,6 +1,7 @@
 <div>
     <div class="group rounded-lg border">
-        <a href="#" class="w-full overflow-hidden rounded-t-lg bg-gray-200">
+        <a [routerLink]="['/product', product.id]" 
+        class="w-full overflow-hidden rounded-t-lg bg-gray-200"> <!-- En este routerLink, lo volvemos dinamico con [] y le mandamos un parametro, el product.id-->
             <img [src]="product.images[0]" [alt]="product.title" class="rounded-lg w-full h-full object-cover object-center group-hover:opacity-75">
         </a>
         <div class="flex flex-col space-y-2 p-4">
