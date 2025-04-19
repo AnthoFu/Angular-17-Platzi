@@ -41,7 +41,7 @@
     class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white"
     [class.translate-x-full]="hideSideMenu()">
     <div class="flex justify-between items-center"> 
-        <p class="text-xl">My Cart</p>
+        <p class="text-xl">Mi carrito</p>
         <button (click)="toogleSideMenu()" class="hover:cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -63,8 +63,11 @@
                 </div>
             </div>
         }
-        <div>
-            Costo total: {{ total() | currency }} <!-- Llamamos el signal total, no a la funcion totalPrices para mejorar rendimiento -->
+        <div class="flex justify-between items-center my-4">
+            Costo total: 
+            <span class="font-bold text-green-700"> 
+                {{ total() | currency }} 
+            </span> <!-- Llamamos el signal total, no a la funcion totalPrices para mejorar rendimiento -->
         </div>
     </div>
 </div>

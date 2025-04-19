@@ -1,7 +1,21 @@
-<div class="grid grid-cols-5 gap-8 px-8 mt-5">
-    @for (product of products(); track product){
-    <app-product [product]="product" (addToCart)="addToCart($event)">
-        <!--Aqui se agrega el evento para escuchar el mensaje enviado de addToCart, donde su funcion es addToCartHandler()-->
-    </app-product>
-    }
+<div class="flex space-x-4 px-8 mt-5">
+    <div class="pr-10">
+        <ul>
+            <h3 class="font-bold text-lg bg-gray-50 rounded-3x">Lista de categorias</h3>
+            @for (category of categories(); track category){
+                <li class="bg-gray-100 rounded-3xl p-4 my-2 hover:text-amber-300 ">
+                    <a href=""
+                    class="hover:cursor-pointer">{{category.name}}</a>
+                </li>
+            }
+            
+        </ul>
+    </div>
+    <div class="grid grid-cols-4 gap-4">
+        @for (product of products(); track product){
+        <app-product [product]="product" (addToCart)="addToCart($event)">
+            <!--Aqui se agrega el evento para escuchar el mensaje enviado de addToCart, donde su funcion es addToCartHandler()-->
+        </app-product>
+        }
+    </div>
 </div>
