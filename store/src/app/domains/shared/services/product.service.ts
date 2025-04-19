@@ -6,14 +6,17 @@ import { product } from '../models/product.model';
   providedIn: 'root'
 })
 export class ProductService {
-
-
+  
   private http = inject (HttpClient);
 
   constructor() { }
 
-  getProducts(){
-    return this.http.get<product[]>(`https://api.escuelajs.co/api/v1/products`);
+  getProducts(category_id?: string){
+    const url = new URL (`https://api.escuelajs.co/api/v1/products`)
+    if (category_id){
+      url.searchParams.set('categoryId', category_id)
+    }
+    return this.http.get<product[]>(url.toString());
   }
 
   getOneProduct(id:string){

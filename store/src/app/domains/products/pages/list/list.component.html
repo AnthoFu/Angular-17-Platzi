@@ -1,10 +1,18 @@
 <div class="flex space-x-4 px-8 mt-5">
     <div class="pr-10">
         <ul>
+            
+
             <h3 class="font-bold text-lg bg-gray-50 rounded-3x">Lista de categorias</h3>
+            <li class="bg-gray-100 rounded-3xl p-4 my-2 hover:text-amber-300 ">
+                <a routerLink="/"
+                class="hover:cursor-pointer">
+                    Todas las categorias
+                </a>
+            </li>
             @for (category of categories(); track category){
                 <li class="bg-gray-100 rounded-3xl p-4 my-2 hover:text-amber-300 ">
-                    <a href=""
+                    <a [routerLink]="['/']" [queryParams]="{ categoryId: category.id }"
                     class="hover:cursor-pointer">{{category.name}}</a>
                 </li>
             }
