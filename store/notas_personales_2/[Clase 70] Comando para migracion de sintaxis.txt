@@ -1,0 +1,13 @@
+Sigue siendo mas recomendable utilizar la nueva sintaxis para facilidad de lectura
+y para mayor rendimiento en los proyectos de angular.
+
+El comando que se utiliza para que angular realice esta migracion de forma automatica es:
+ng g @angular/core:control-flow
+
+Ejemplo de sintaxis antigua: <div ngIf="condicion"></div>
+
+Ejemplo de sintaxis nueva: 
+if (condicion){
+    <div></div>
+}
+

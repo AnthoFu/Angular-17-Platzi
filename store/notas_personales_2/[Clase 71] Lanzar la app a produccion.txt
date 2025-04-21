@@ -1,0 +1,17 @@
+En este curso hemos utilizado vercel como hosting de la aplicacion.
+
+Si necesitaramos que angular comprima el archivo a html, css y js para produccion manual podriamos utilizar
+
+ng build
+
+Pero como nosotros estamos utilizando vercel con el comando:
+
+vercel
+
+y luego
+
+vercel --prod
+
+Se mandara directamente el proyecto a produccion.
+
+Fue un tremendo curso y la verdad que aprendí mucho sobre el proceso de creacion de apps web mediante angular. <3
