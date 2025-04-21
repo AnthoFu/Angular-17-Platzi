@@ -1,6 +1,6 @@
 # Angular 17 Platzi Course 🚀
 
-![Certificado del Curso Angular 17 Platzi]((https://github.com/user-attachments/assets/8975f565-40bc-4418-b078-4729071ac569))
+![Certificado del Curso Angular 17 Platzi](https://github.com/user-attachments/assets/8975f565-40bc-4418-b078-4729071ac569)
 
 Este repositorio contiene los apuntes, detalles y todo el código desarrollado durante el curso de Angular 17 en Platzi.  
 🔗 [Ver curso en Platzi](https://platzi.com/cursos/angular/)
