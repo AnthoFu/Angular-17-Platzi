@@ -1,0 +1,17 @@
+🎈RESUMEN:
+
+Nos conviene que en la primera carga de la página al usuario, no descarguemos todo el peso de nuestra app completa.
+
+BENEFICIOS:
+
+Ya no descargamos la app completa, sino solo lo necesario a la ruta
+La mayoría de usuarios no visita cada una de las rutas, ¿para qué traerlas todas?
+Reducimos considerablemente el tiempo de carga de nuestra app, dependiendo el tamaño de nuestra página
+Por otro lado, también favorece el lado de seguridad:
+
+Por ejemplo:
+
+Si contamos con una ruta /admin, al que solo pueden ingresar usuarios con el rol de Supervisor,
+¿estaría bien si la ruta /admin les cargue a todos así no puedan ingresar?
+
+Utilizando el lazy loading, evitamos que tampoco te carguen rutas de las que no deberías tener conocimiento
