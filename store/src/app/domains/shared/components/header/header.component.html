@@ -58,7 +58,7 @@
                 </div>
                 <div>
                     <p class="text-sm"> {{product.title}} </p>
-                    <p class="text-sm"> {{product.price}} </p>
+                    <p class="text-sm font-bold text-green-700"> {{product.price | currency:'$' : 'symbol' : '1.0'}} </p>
                     <button class="text-sm text-gray-600 hover:cursor-pointer hover:text-red-500 duration-300">Eliminar</button>
                 </div>
             </div>

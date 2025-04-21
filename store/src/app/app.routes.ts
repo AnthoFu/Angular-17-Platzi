@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { ListComponent } from './domains/products/pages/list/list.component'
-import { AboutComponent } from '@info/pages/about/about.component';
 import { NotFoundComponent } from '@info/pages/not-found/not-found.component';
 import { LayoutComponent } from '@shared/components/layout/layout.component';
 import { ProductDetailComponent } from '@products/pages/product-detail/product-detail.component';
@@ -13,16 +11,17 @@ export const routes: Routes = [
         children:[
             {
                 path: '',
-                component: ListComponent // Este es el primer hijo que se renderizara.
+                loadComponent: () => import('./domains/products/pages/list/list.component').then(m => m.ListComponent)  // Este es el primer hijo que se renderizara. // Con el loadComponent se aplicara el 'lazyLoading'
             },
         
             {
                 path: 'about',
-                component: AboutComponent // Componente para testeos
+                loadComponent: () => import('./domains/info/pages/about/about.component').then(m=> m.AboutComponent) // Componente para testeos
             },
             {
                 path: 'product/:id', // Este path tiene un parámetro (id) que es para la id del producto
                 component:ProductDetailComponent // componente para detalles del producto
+                // Este componente no lo vamos a cargar de forma perezosa (lazy loading)
             }
         
         ]
